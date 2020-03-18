@@ -1,2 +1,2 @@
-# SManagementSystem
+# StockManagementSystem
 oop at gnu
