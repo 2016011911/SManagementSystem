@@ -10,11 +10,6 @@ public class Calculator {
 		dval = sc.nextDouble ();
 		i = (dval - 32) * 5 / 9;
 		System.out.println ("¼·¾¾¿Âµµ = " + i);
-		
-		
-		
+				
 	}
-
-
-
 }
