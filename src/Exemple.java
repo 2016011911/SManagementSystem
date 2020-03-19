@@ -1,8 +1,12 @@
+import java.util.Scanner;
 
-public class exemple {
+public class Exemple {
 
 	public static void main(String[] args) {
-		System.out.println("Hello World!!");
+		String str;
+		Scanner sc = new Scanner (System.in);
+		str = sc.next (); // Read a line
+		System.out.println ("str = "+ str);
 
 	}
 
