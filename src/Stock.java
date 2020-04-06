@@ -21,6 +21,6 @@ public class Stock {
 	}
 	
 	public void printlnfo() {
-		System.out.println("name" + name + "price" + price + "target" + target + "stoploss"+ stoploss);
+		System.out.println("name : " + name + "price : " + price + "target : " + target + "stoploss : "+ stoploss);
 	}
 }
