@@ -12,7 +12,7 @@ public class ManuManager {
 			System.out.println(" 1. Add Stock");
 			System.out.println(" 2. Delete Stock");
 			System.out.println(" 3. Edit Stock");
-			System.out.println(" 4. View Stock");
+			System.out.println(" 4. View Stocks");
 			System.out.println(" 5. Exit");
 			System.out.println("Select one number between 1 - 5:");
 			num = input.nextInt();
@@ -26,7 +26,7 @@ public class ManuManager {
 				stockManager.editStock();
 			}
 			else if (num == 4) {
-				stockManager.veiwStock();
+				stockManager.veiwStocks();
 			}
 			else {
 				continue;
