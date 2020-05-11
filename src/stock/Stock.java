@@ -2,7 +2,7 @@ package stock;
 
 import java.util.Scanner;
 
-public class Stock {
+public abstract class Stock implements StockInput {
 
 	protected StockKind kind = StockKind.Kospi;
 	protected String name;
@@ -13,6 +13,11 @@ public class Stock {
 	public Stock() {		
 	}
 	
+	public Stock(StockKind kind) {
+		this.kind = kind;
+	}
+	
+	
 	
 	public Stock(String name, int price) {
 		this.name = name;
@@ -20,6 +25,13 @@ public class Stock {
 	}
 	
 	public Stock(String name, int price, int target, int stoploss) {
+		this.name = name;
+		this.price = price;
+		this.target = target;
+		this.stoploss = stoploss;
+	}
+	public Stock(StockKind kind, String name, int price, int target, int stoploss) {
+		this.kind = kind;
 		this.name = name;
 		this.price = price;
 		this.target = target;
@@ -64,26 +76,50 @@ public class Stock {
 	public void setStoploss(int stoploss) {
 		this.stoploss = stoploss;
 	}
-
-	public void printInfo() {
-		System.out.println(" name : " + name + " price : " + price + " target : " + target + " stoploss : "+ stoploss);
-	}
 	
-	public void getUserInput(Scanner input) {
+	public abstract void printInfo() ;
+	
+	public void setStockName(Scanner input) {
 		System.out.print("Stock name : ");
 		String name = input.next();
 		this.setName(name);
-		
+	}
+	public void setStockPrice(Scanner input) {
 		System.out.print("Stock price : ");
 		int price = input.nextInt();
 		this.setPrice(price);
-		
+	}
+	public void setStockTarget(Scanner input) {
 		System.out.print("Stock target : ");
 		int target = input.nextInt();
 		this.setTarget(target);
-		
+	}
+	public void setStockStoploss(Scanner input) {
 		System.out.print("Stop Loss : ");
 		int stoploss = input.nextInt();
 		this.setStoploss(stoploss);
 	}
+	
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case Kospi: 
+			skind = "Kospi";
+			break;
+		case Kosdaq:
+			skind = "Kosdaq";
+			break;
+		case Dow:
+			skind = "Dow";
+			break;
+		case Nasdaq:
+			skind = "Nasdaq";
+			break;
+		default:
+			
+		}
+		return skind;
+	}
+	
+
 }
