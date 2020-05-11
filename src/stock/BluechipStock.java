@@ -14,7 +14,7 @@ public abstract class BluechipStock extends Stock {
 	public void printInfo() {
 	
 		String skind = getKindString();
-		System.out.println("kind : "+skind + " name : " + name + " price : " + price + "stoploss" + stoploss +" target : " + target );
+		System.out.println("kind : "+skind + " name : " + name + " price : " + price + "stoploss : " + stoploss +" target : " + target );
 
 	}
 
