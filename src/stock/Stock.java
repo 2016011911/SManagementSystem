@@ -2,6 +2,8 @@ package stock;
 
 import java.util.Scanner;
 
+import exception.StoplossFormatException;
+
 public abstract class Stock implements StockInput {
 
 	protected StockKind kind = StockKind.Kospi;
@@ -73,7 +75,10 @@ public abstract class Stock implements StockInput {
 		return stoploss;
 	}
 
-	public void setStoploss(int stoploss) {
+	public void setStoploss(int stoploss) throws StoplossFormatException {
+		if(stoploss < 0 && stoploss != 0) {
+			throw new StoplossFormatException();
+		}
 		this.stoploss = stoploss;
 	}
 	
@@ -95,9 +100,19 @@ public abstract class Stock implements StockInput {
 		this.setTarget(target);
 	}
 	public void setStockStoploss(Scanner input) {
-		System.out.print("Stop Loss : ");
-		int stoploss = input.nextInt();
-		this.setStoploss(stoploss);
+		int stoploss = 0;
+		while(stoploss<=0) {
+			System.out.print("Stop Loss : ");
+			stoploss = input.nextInt();
+			try {
+				this.setStoploss(stoploss);
+			}
+			catch (StoplossFormatException e) {
+				System.out.println("Incorrect Stoploss Format. put the positive number");
+				
+			}
+		}
+		
 	}
 	
 	public String getKindString() {

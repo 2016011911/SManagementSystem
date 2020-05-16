@@ -2,6 +2,8 @@ package stock;
 
 import java.util.Scanner;
 
+import exception.StoplossFormatException;
+
 public abstract class BluechipStock extends Stock {
 	public BluechipStock(StockKind kind) {
 		super(kind);
@@ -14,7 +16,7 @@ public abstract class BluechipStock extends Stock {
 	public void printInfo() {
 	
 		String skind = getKindString();
-		System.out.println("kind : "+skind + " name : " + name + " price : " + price + "stoploss : " + stoploss +" target : " + target );
+		System.out.println("kind : "+skind + " name : " + name + " price : " + price + " stoploss : " + stoploss +" target : " + target );
 
 	}
 
@@ -25,18 +27,24 @@ public abstract class BluechipStock extends Stock {
 
 			System.out.println("Do you have a stoploss?(Y/N)");
 			answer = input.next().charAt(0);
-			if (answer == 'y' || answer == 'Y') {
-				System.out.print("stoploss : ");
-				int stoploss = input.nextInt();
-				this.setStoploss(stoploss);
-				break;
+			try {
+				
+				if (answer == 'y' || answer == 'Y') {
+					System.out.print("stoploss : ");
+					int stoploss = input.nextInt();
+					this.setStoploss(stoploss);
+					break;
+				}
+				else if (answer == 'n' || answer == 'N') {
+					this.setStoploss(0);
+					break;
+				}
+				else {
+	
+				}
 			}
-			else if (answer == 'n' || answer == 'N') {
-				this.setStoploss(0);
-				break;
-			}
-			else {
-
+			catch(StoplossFormatException e) {
+				System.out.println("Incorrect Stoploss Format. put the positive number");
 			}
 		}
 	}

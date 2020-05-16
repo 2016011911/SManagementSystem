@@ -2,6 +2,8 @@ package stock;
 
 import java.util.Scanner;
 
+import exception.StoplossFormatException;
+
 public interface StockInput {
 	public String getName();
 
@@ -11,7 +13,7 @@ public interface StockInput {
 	
 	public void setTarget(int target);
 	
-	public void setStoploss(int stoploss) ;
+	public void setStoploss(int stoploss) throws StoplossFormatException;
 	
 	public void getUserInput(Scanner input);
 	
