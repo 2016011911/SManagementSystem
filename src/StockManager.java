@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -5,14 +6,22 @@ import java.util.Scanner;
 import stock.KosdaqStock;
 import stock.KospiStock;
 import stock.NasdaqStock;
-import stock.Stock;
 import stock.StockInput;
 import stock.StockKind;
 
-public class StockManager {
+public class StockManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2325370660825223441L;
+	
 	ArrayList<StockInput> stocks = new ArrayList<StockInput>();
-	Scanner input;
-
+	transient Scanner input;
+	
+	public void setScanner(Scanner input) {
+        this.input = input;
+    }
+	
 	StockManager(Scanner input){
 		this.input=input;
 	}
@@ -22,8 +31,6 @@ public class StockManager {
 		StockInput stockInput;
 		while(kind<1 || kind>3) {
 			try {
-
-
 				System.out.print("1 for Nasdaq ");
 				System.out.print("2 for Kospi ");
 				System.out.print("3 for Kosdaq ");

@@ -1,11 +1,17 @@
 package stock;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.StoplossFormatException;
 
-public abstract class Stock implements StockInput {
+public abstract class Stock implements StockInput, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7279602919551607474L;
+	
 	protected StockKind kind = StockKind.Kospi;
 	protected String name;
 	protected int price;
