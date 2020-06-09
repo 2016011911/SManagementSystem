@@ -11,9 +11,15 @@ public interface StockInput {
 	
 	public void setPrice(int price);
 	
+	public int getPrice();
+	
 	public void setTarget(int target);
 	
+	public int getTarget();
+	
 	public void setStoploss(int stoploss) throws StoplossFormatException;
+	
+	public int getStoploss();
 	
 	public void getUserInput(Scanner input);
 	

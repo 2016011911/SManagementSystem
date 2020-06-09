@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -6,6 +7,7 @@ import java.util.Scanner;
 import stock.KosdaqStock;
 import stock.KospiStock;
 import stock.NasdaqStock;
+import stock.Stock;
 import stock.StockInput;
 import stock.StockKind;
 
@@ -142,7 +144,13 @@ public class StockManager implements Serializable{
 
 	}
 
-
+	public int size() {
+		return stocks.size();
+	}
+	
+	public StockInput get(int index) {
+		return (Stock) stocks.get(index);
+	}
 	public void showEditMenu() {
 
 		System.out.println("**Stock Info Edit Menu**");

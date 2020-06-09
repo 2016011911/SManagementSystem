@@ -45,6 +45,6 @@ public class KosdaqStock extends BluechipStock  {
 	}
 	public void printInfo() {
 		String skind = getKindString();
-		System.out.println("kind : "+skind + " name : " + name + " price : " + price + " stoploss : " + stoploss +" target : " + target );
+		System.out.println("kind : "+skind + " name : " + name + " price : " + price +" target : " + target + " stoploss : " + stoploss  );
 	}
 }
