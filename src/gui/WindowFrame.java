@@ -22,7 +22,7 @@ public class WindowFrame extends JFrame{
 		
 		this.stockManager = stockManager;
 		menuselection = new MenuSelection(this);
-		stockadder = new StockAdder(this);
+		stockadder = new StockAdder(this, this.stockManager);
 		stockviewer = new StockViewer(this, this.stockManager);
 		
 		

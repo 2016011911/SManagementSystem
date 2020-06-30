@@ -28,6 +28,18 @@ public class StockManager implements Serializable{
 		this.input=input;
 	}
 
+	public void addStock(String name, String price, String target, String stoploss) {
+		StockInput stockInput = new NasdaqStock(StockKind.Nasdaq);
+		stockInput.getUserInput(input);
+		stocks.add(stockInput);
+	}
+	
+	public void addStock(StockInput stockInput) {
+		
+		stocks.add(stockInput);
+	}
+	
+	
 	public void addStock() {
 		int kind =0;
 		StockInput stockInput;
